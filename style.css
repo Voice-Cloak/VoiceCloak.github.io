@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+    margin: 20px 40px; /* Add some margins */
+    max-width: 900px; /* Limit content width for readability */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1, h3 {
+    color: #333;
+}
+
+.audio-pair {
+    background-color: #f9f9f9; /* Light background for each section */
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 25px;
+    border-radius: 5px; /* Slightly rounded corners */
+}
+
+.audio-pair p {
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+audio {
+    display: block; /* Make player take full width available */
+    width: 100%;    /* Adjust width as needed */
+    max-width: 500px; /* Set a max-width */
+    margin-top: 5px;
+    margin-bottom: 15px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 2em 0;
+}
+
+footer {
+    margin-top: 3em;
+    text-align: center;
+    color: #777;
+}

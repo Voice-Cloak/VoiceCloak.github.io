@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audio Demo: [Your Paper Title]</title> <!-- CHANGE THIS TITLE -->
+    <!-- Optional: Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic inline styles if not using style.css */
+        body { font-family: sans-serif; margin: 2em; }
+        .audio-pair { margin-bottom: 2em; border-bottom: 1px solid #eee; padding-bottom: 1em; }
+        .audio-pair h3 { margin-bottom: 0.5em; }
+        audio { margin-top: 5px; width: 80%; max-width: 400px; } /* Basic audio player styling */
+    </style>
+</head>
+<body>
+
+    <h1>Audio Demo: [Your Paper Title]</h1> <!-- CHANGE THIS TITLE -->
+
+    <p>
+        Listen to the audio samples from our paper "[Your Paper Title]".
+        <!-- Optional: Add a link to your paper -->
+        <!-- <a href="[Link to your PDF or ArXiv page]" target="_blank">Read the paper here</a>. -->
+    </p>
+
+    <hr>
+
+    <!-- === START: Audio Sample Section === -->
+
+    <div class="audio-pair">
+        <h3>Sample 1: [Description, e.g., Naturalness Comparison]</h3>
+        <p><strong>Baseline:</strong></p>
+        <audio controls>
+            <source src="audio/sample1_baseline.mp3" type="audio/mpeg"> <!-- Make sure path and type are correct -->
+            <!-- You can add more <source> tags for different formats if needed -->
+            <!-- <source src="audio/sample1_baseline.ogg" type="audio/ogg"> -->
+            Your browser does not support the audio element.
+        </audio>
+
+        <p><strong>Ours:</strong></p>
+        <audio controls>
+            <source src="audio/sample1_ours.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <div class="audio-pair">
+        <h3>Sample 2: [Description, e.g., Timbre Comparison with Reference]</h3>
+        <p><strong>Reference:</strong></p>
+         <audio controls>
+            <source src="audio/sample2_reference.mp3" type="audio/mpeg"> <!-- Assuming you have reference files -->
+            Your browser does not support the audio element.
+        </audio>
+
+        <p><strong>Baseline:</strong></p>
+        <audio controls>
+            <source src="audio/sample2_baseline.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <p><strong>Ours:</strong></p>
+        <audio controls>
+            <source src="audio/sample2_ours.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
+
+    <!-- === Add more divs like the one above for each sample/comparison === -->
+
+
+    <!-- === END: Audio Sample Section === -->
+
+    <footer>
+        <p><small>Generated samples from [Your Paper Title], [Year].</small></p>
+    </footer>
+
+</body>
+</html>
