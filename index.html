@@ -15,65 +15,246 @@
     </style>
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">
+                VoiceCloak
+            </div>
+            <div class="navbar-links">
+                <!-- Each link/group is an item in the grid -->
+                <a href="#abstract">Abstract</a>
+                <a href="#comparison">One-shot<br>Speaker<br>Adaptation</a> <!-- Use <br> for line breaks -->
+                <a href="#">Many-to-Many<br>VC</a>
+                <a href="#">Zero-shot<br>VC</a>
+                <a href="#">Zero-shot<br>Cross-lingual<br>VC</a>
+                <a href="#">DDDM-TTS</a>
+                <a href="#">DDDM-Mixer</a>
+                <a href="#">Ablation<br>Study</a>
+                <a href="#">Style<br>Control</a>
+            </div>
+        </div>
+    </nav>
+      
+    <!-- The rest of your page content goes below -->
+    <hr class="nav-divider"> <!-- Optional visual divider -->
+    
+    <div class="main-content-area">
+        <div class="paper-intro-section">
+            <!-- Paper Title -->
+            <h1 class="paper-title">
+                VoiceCloak: A Multi-Dimensional Defense Framework against Unauthorized Diffusion-based Voice Cloning
+            </h1>
+            <!-- Abstract Section -->
+            <div class="abstract-section" id="abstract">
+                <h2>Abstract</h2>
+                <p class="abstract-text">
+                    Diffusion Models (DMs) have achieved remarkable success in realistic voice cloning (VC), while they also increase the risk of malicious misuse. 
+                    Existing proactive defenses designed for traditional VC models aim to disrupt the forgery process, but they have been proven incompatible with DMs due to the intricate generative mechanisms of diffusion. 
+                    To bridge this gap, we introduce VoiceCloak, a multi-dimensional proactive defense framework with the goal of obfuscating speaker identity and degrading perceptual quality in potential unauthorized VC. 
+                    To achieve these goals, we conduct a focused analysis to identify specific vulnerabilities within DMs, allowing VoiceCloak to disrupt the cloning process by introducing adversarial perturbations into the reference audio. 
+                    Specifically, to obfuscate speaker identity, VoiceCloak first targets speaker identity by distorting representation learning embeddings to maximize identity variation, which is guided by auditory perception principles.
+                    Additionally, VoiceCloak disrupts crucial conditional guidance processes, particularly attention context, thereby preventing the alignment of vocal characteristics that are essential for achieving convincing cloning. 
+                    Then, to address the second objective, VoiceCloak introduces score magnitude amplification to actively steer the reverse trajectory away from the generation of high-quality speech. 
+                    Noise-guided semantic corruption is further employed to disrupt structural speech semantics captured by DMs, degrading output quality. 
+                    Extensive experiments highlight VoiceCloak's outstanding defense success rate against unauthorized diffusion-based voice cloning.
+                </p>
+            </div>
 
-    <h1>Audio Demo: [Your Paper Title]</h1> <!-- CHANGE THIS TITLE -->
+             <!-- Figure Section -->
+            <div class="figure-section">
+                <div class="figure-image-container"> <!-- New container for the image -->
+                    <img src="figures/framework_overview.jpg" alt="Framework diagram of the proposed method">
+                </div>
+                <p class="figure-caption">Figure 1: Overview of the proposed VoiceCloak framework.</p>
+            </div>
+        </div>
 
-    <p>
-        Listen to the audio samples from our paper "[Your Paper Title]".
-        <!-- Optional: Add a link to your paper -->
-        <!-- <a href="[Link to your PDF or ArXiv page]" target="_blank">Read the paper here</a>. -->
-    </p>
 
-    <hr>
+        <hr class="major-divider"> <!-- Optional visual divider for major sections -->
 
-    <!-- === START: Audio Sample Section === -->
+        <!-- ============================== -->
+        <!-- 主要对比实验章节 (Main Comparison Section) -->
+        <!-- ============================== -->
+        <section class="comparison-section" id="comparison">
 
-    <div class="audio-pair">
-        <h3>Sample 1: [Description, e.g., Naturalness Comparison]</h3>
-        <p><strong>Baseline:</strong></p>
-        <audio controls>
-            <source src="audio/sample1_baseline.mp3" type="audio/mpeg"> <!-- Make sure path and type are correct -->
-            <!-- You can add more <source> tags for different formats if needed -->
-            <!-- <source src="audio/sample1_baseline.ogg" type="audio/ogg"> -->
-            Your browser does not support the audio element.
-        </audio>
+            <!-- 1. 章节标题和描述 (Section Header - Style like Fig 2) -->
+            <div class="section-header"> <!-- 添加一个类来控制背景颜色 -->
+                <h2>主要对比实验 (Main Comparison Experiments)</h2>
+                <p>这里是一些简短的描述，说明本章节的实验设置或目的。</p>
+            </div>
 
-        <p><strong>Ours:</strong></p>
-        <audio controls>
-            <source src="audio/sample1_ours.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
+            <!-- 2. 第一个对比样本块 (Sample Block 1) -->
+            <div class="comparison-sample-block">
+                <!-- 可选：当前样本的文字描述 -->
+                <h3 class="sample-description">Male-to-Male</h3>
+                <!-- 音频内容的网格布局 -->
+                <div class="audio-grid">
+                    <!-- Grid Header Row -->
+                    <div class="grid-header source-header">Source</div>
+                    <div class="grid-header reference-header">Reference</div>
+                    <div class="grid-header conversion-header">Conversion</div>
+
+                    <!-- Grid Content Row: Source Cell -->
+                    <div class="grid-cell source-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">Text [Description]: [源文本描述或内容]</p>
+                        </div>
+                        <audio controls>
+                            <source src="samples/x_src.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                        <p class="audio-context-text">这是解释文字的具体内容</p>
+                    </div>
+
+                    <!-- Grid Content Row: Reference Cell -->
+                    <div class="grid-cell reference-cell">
+                        <div class="audio-info">
+                            <p class="audio-label">Description: [目标说话人/参考语音描述]</p>
+                        </div>
+                        <audio controls>
+                            <source src="audio/sample1_reference.wav" type="audio/wav">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+
+                    <!-- Grid Content Row: Conversion Cell -->
+                    <div class="grid-cell conversion-cell">
+                        <!-- Conversion 方法的内部网格 -->
+                        <div class="conversion-methods-grid">
+                            <!-- GT -->
+                            <div class="conversion-method">
+                                <p class="audio-label">GT</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="audio/sample1_conversion_gt.mp3" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <div class="conversion-method"></div>
+                            <!-- Random -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Random Noise</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="audio/sample1_conversion_random.mp3" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Attack-VC -->
+                            <div class="conversion-method">
+                                <p class="audio-label">Attack-VC</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="audio/sample1_conversion_attackvc.mp3" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoicePrivacy -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoicePrivacy</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="audio/sample1_conversion_voiceprivacy.mp3" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- VoiceGuard -->
+                            <div class="conversion-method">
+                                <p class="audio-label">VoiceGuard</p>
+                                <!-- REMOVED wrapper div -->
+                                <audio controls>
+                                    <source src="audio/sample1_conversion_voiceguard.mp3" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- Ours -->
+                            <div class="conversion-method">
+                                <p class="audio-label highlight-label">VoiceCloak</p>
+                                <audio controls>
+                                    <source src="audio/sample1_conversion_ours.mp3" type="audio/wav">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                            <!-- padding -->
+                            <div class="conversion-method"></div>
+                        </div> <!-- end .conversion-methods-grid -->
+                    </div> <!-- end .conversion-cell -->
+                </div><!-- end .audio-grid -->
+            </div> <!-- end .sample-block -->
+
+            <!-- 3. 可以复制上面的 .sample-block 来添加更多对比样本 -->
+            <!--
+            <div class="sample-block">
+                <h3 class="sample-description">样本 2: ...</h3>
+                <div class="audio-grid">
+                    ... (类似的内容，替换文件名和描述) ...
+                </div>
+            </div>
+            -->
+
+        </section> <!-- end .comparison-section -->
+
+        <div class="audio-pair">
+            <h3>Sample 1: [Description, e.g., Naturalness Comparison]</h3>
+            <p><strong>Baseline:</strong></p>
+            <audio controls>
+                <source src="audio/sample1_baseline.mp3" type="audio/mpeg"> <!-- Make sure path and type are correct -->
+                <!-- You can add more <source> tags for different formats if needed -->
+                <!-- <source src="audio/sample1_baseline.ogg" type="audio/ogg"> -->
+                Your browser does not support the audio element.
+            </audio>
+
+            <p><strong>Ours:</strong></p>
+            <audio controls>
+                <source src="audio/sample1_ours.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div class="audio-pair">
+            <h3>Sample 2: [Description, e.g., Timbre Comparison with Reference]</h3>
+            <p><strong>Reference:</strong></p>
+            <audio controls>
+                <source src="audio/sample2_reference.mp3" type="audio/mpeg"> <!-- Assuming you have reference files -->
+                Your browser does not support the audio element.
+            </audio>
+
+            <p><strong>Baseline:</strong></p>
+            <audio controls>
+                <source src="audio/sample2_baseline.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+
+            <p><strong>Ours:</strong></p>
+            <audio controls>
+                <source src="audio/sample2_ours.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <!-- === Add more divs like the one above for each sample/comparison === -->
+
+
+        <!-- === END: Audio Sample Section === -->
+
+        <footer>
+            <p><small>Generated samples from [Your Paper Title], [Year].</small></p>
+        </footer>
     </div>
 
-    <div class="audio-pair">
-        <h3>Sample 2: [Description, e.g., Timbre Comparison with Reference]</h3>
-        <p><strong>Reference:</strong></p>
-         <audio controls>
-            <source src="audio/sample2_reference.mp3" type="audio/mpeg"> <!-- Assuming you have reference files -->
-            Your browser does not support the audio element.
-        </audio>
-
-        <p><strong>Baseline:</strong></p>
-        <audio controls>
-            <source src="audio/sample2_baseline.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-
-        <p><strong>Ours:</strong></p>
-        <audio controls>
-            <source src="audio/sample2_ours.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    </div>
-
-    <!-- === Add more divs like the one above for each sample/comparison === -->
-
-
-    <!-- === END: Audio Sample Section === -->
-
-    <footer>
-        <p><small>Generated samples from [Your Paper Title], [Year].</small></p>
-    </footer>
+    <!-- ↓↓↓ NEW Fixed Sidebar Navigation ↓↓↓ -->
+    <aside class="fixed-sidebar-nav">
+        <h4>VoiceCloak</h4> <!-- Optional Title for the Sidebar -->
+        <ul>
+            <li><a href="#abstract">Abstract</a></li>
+            <li><a href="#comparison">Comparison Experiments</a></li>
+            <!-- Add links corresponding to the IDs of your sections -->
+            <li><a href="#ablation">Ablation Study</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+            <!-- Add more links as needed -->
+        </ul>
+    </aside>
+    <!-- ↑↑↑ End Fixed Sidebar Navigation ↑↑↑ -->
 
 </body>
 </html>
